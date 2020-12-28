@@ -32,11 +32,18 @@ class App extends React.Component {
     }
   }
 
+  updateData = (profile) => {
+    this.setState(prevState => ({
+      profiles: [...prevState.profiles, profile]
+    }))
+    console.log(this.state.profiles);
+  }
+
   render() {
     return (
       <div>
         <h1 className="header">{this.props.title}</h1>
-        <Form/>
+        <Form updateProfile={this.updateData}/>
         <CardList profiles={this.state.profiles}/>
       </div>
     );

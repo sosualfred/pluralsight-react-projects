@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 class Form extends React.Component {
   constructor(props) {
@@ -12,14 +13,21 @@ class Form extends React.Component {
     this.setState({ username: event.target.value });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state.username);
+    const response = await axios.get(`https://api.github.com/users/${this.state.username}`);
+    const profileData = {
+        name: response.data.name,
+        location: response.data.location,
+        avatar_url: response.data.avatar_url
+    }
+    this.props.updateProfile(profileData);
+    console.log(profileData);
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit }>
         <input
           type="text"
           required
