@@ -1,0 +1,21 @@
+.profile {
+    margin: 1rem;  
+    display: flex;
+}
+
+.info {
+    margin-left: 1.2rem; 
+}  
+
+.name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.location {
+    font-size: 18px;
+}
+
+img {
+    width: 75px;
+}
