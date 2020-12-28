@@ -22,7 +22,7 @@ class Form extends React.Component {
         avatar_url: response.data.avatar_url
     }
     this.props.updateProfile(profileData);
-    console.log(profileData);
+    this.setState({username: ''});
   };
 
   render() {
